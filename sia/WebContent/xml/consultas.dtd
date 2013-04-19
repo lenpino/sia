@@ -1,0 +1,40 @@
+<!ELEMENT consultas (params,strprocs*,conssps*,conssqls*,constxs*)>
+	<!ELEMENT params (param)*>
+		<!ELEMENT param (type,len)*>
+		<!ATTLIST param name ID #REQUIRED>
+			<!ELEMENT type (#PCDATA)>
+			<!ELEMENT len (#PCDATA)>
+			
+	<!ELEMENT strprocs (strproc*)>
+		<!ELEMENT strproc (inparams?,outparams?)>
+		<!ATTLIST strproc strname ID #REQUIRED>
+			<!ELEMENT inparams (instrparams*)>
+				<!ELEMENT instrparams (#PCDATA)>
+			<!ELEMENT outparams (outstrparams*)>
+				<!ELEMENT outstrparams (#PCDATA)>
+			
+	<!ELEMENT conssps (conssp*)>
+		<!ELEMENT conssp (considpool,consbean,consstrproc)>
+		<!ATTLIST conssp consname ID #REQUIRED>
+			<!ELEMENT considpool (#PCDATA)>
+			<!ELEMENT consbean (#PCDATA)>
+			<!ELEMENT consstrproc (#PCDATA)>
+				
+	<!ELEMENT conssqls (conssql*)>
+		<!ELEMENT conssql (considpoolsql,consbeansql,sql,paramsSQL)>
+		<!ATTLIST conssql consnamesql ID #REQUIRED>
+			<!ELEMENT considpoolsql (#PCDATA)>
+			<!ELEMENT consbeansql (#PCDATA)>
+			<!ELEMENT sql (#PCDATA)>
+			<!ELEMENT paramsSQL (nomparamSQL*)>
+				<!ELEMENT nomparamSQL (#PCDATA)>
+
+	<!ELEMENT constxs (constx*)>
+		<!ELEMENT constx (considpooltx,bean,sps)>
+		<!ATTLIST constx consnametx ID #REQUIRED>
+			<!ELEMENT considpooltx (#PCDATA)>
+			<!ELEMENT bean (#PCDATA)>
+			<!ELEMENT sps (sp*)>
+				<!ELEMENT sp (#PCDATA)>
+				<!ATTLIST sp sppar CDATA #REQUIRED>
+				

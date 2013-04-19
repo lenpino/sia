@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!ELEMENT servlet (page-list)>
+	<!ELEMENT page-list (default-page?,page+,error-page?)>
+		<!ELEMENT default-page (uri)>
+		<!ELEMENT page (page-name,uri)>
+			<!ELEMENT page-name (#PCDATA)>
+			<!ELEMENT uri (#PCDATA)>
+		<!ELEMENT error-page (uri)>

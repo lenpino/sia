@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PROGRAMAS SYSTEM "programa.dtd">
+<APLICACION>
+    <ini>
+        <conecciones>
+        	<DBconns>
+				<DBconn DBconnid="perfiles">
+					<poolname>jdbc/perfilDS</poolname>
+				</DBconn>
+			</DBconns>
+        </conecciones>
+    </ini>
+	<xmls>
+		<xml type="BD">
+			<path>/xml/dbfce.xml</path>
+		</xml>	
+	</xmls>
+    <errores>
+        <error idError="1000">
+            <AliasJspError>logonError</AliasJspError>
+        </error>
+    </errores>
+    <programas>
+        <programa name="prglogin">
+            <atributos>
+                <servicioIni>srvlogin</servicioIni>
+                <AliasJspSalida>intranet</AliasJspSalida>
+            </atributos>
+			<serviciosPrg>
+				<servicioPrg id="srvlogin" sgteSrv="objlogin" />
+			</serviciosPrg>
+        </programa>
+         <programa name="prgcambiaclave">
+            <atributos>
+                <servicioIni>srvobj</servicioIni>
+                <AliasJspSalida>cambiook</AliasJspSalida>
+            </atributos>
+			<serviciosPrg>
+				<servicioPrg id="srvobj" sgteSrv="objcambiaclave"/>
+			</serviciosPrg>
+        </programa>
+        <programa name="prglogoff">
+            <atributos>
+                <servicioIni>srvlogoff</servicioIni>
+                <AliasJspSalida>home</AliasJspSalida>
+            </atributos>
+			<serviciosPrg>
+				<servicioPrg id="srvlogoff" sgteSrv="sbo"/>
+			</serviciosPrg>
+        </programa>
+        <programa name="prgverificamail">
+			<atributos>
+				<servicioIni>srvlogin</servicioIni>
+				<AliasJspSalida>home</AliasJspSalida>
+			</atributos>
+			<serviciosPrg>
+				<servicioPrg id="srvlogin" sgteSrv="objverificamail"/>
+			</serviciosPrg>
+		</programa>
+		<programa name="prgvalmail">
+			<atributos>
+				<servicioIni>srvlinkss</servicioIni>
+				<AliasJspSalida>registro</AliasJspSalida>
+			</atributos>
+			<serviciosPrg>
+				<servicioPrg id="srvlinkss" sgteSrv="objvalidacodigo"/>
+			</serviciosPrg>
+		</programa>	 
+		<programa name="prgregistrousr">
+			<atributos>
+				<servicioIni>srvlinkss</servicioIni>
+				<AliasJspSalida>home</AliasJspSalida>
+			</atributos>
+			<serviciosPrg>
+				<servicioPrg id="srvlinkss" sgteSrv="objregistrousr" />
+			</serviciosPrg>
+		</programa>	 	     
+	   	<programa name="prgusrparaclave">
+	        	<atributos>
+	        		<servicioIni>srvlinkss</servicioIni>
+	            	<AliasJspSalida>envioCorreo</AliasJspSalida>
+	        	</atributos>
+				<serviciosPrg>
+					<servicioPrg id="srvlinkss" sgteSrv="objValUsr"/>
+				</serviciosPrg>
+	   	</programa>	
+	   	<programa name="prgvallink">
+	        	<atributos>
+	        		<servicioIni>srvlinkss</servicioIni>
+	            	<AliasJspSalida>asignaclave</AliasJspSalida>
+	        	</atributos>
+				<serviciosPrg>
+					<servicioPrg id="srvlinkss" sgteSrv="objVallink"/>
+				</serviciosPrg>
+	   	</programa>	
+	   	<programa name="prgsetclave">
+	        	<atributos>
+	        		<servicioIni>srvlinkss</servicioIni>
+	            	<AliasJspSalida>seteook</AliasJspSalida>
+	        	</atributos>
+				<serviciosPrg>
+					<servicioPrg id="srvlinkss" sgteSrv="objsetclave"/>
+				</serviciosPrg>
+	   	</programa>
+		<programa name="prglink">
+			<atributos>
+				<servicioIni>srvlink</servicioIni>
+				<AliasJspSalida>home</AliasJspSalida>
+			</atributos>
+			<serviciosPrg>
+				<servicioPrg id="srvlink" sgteSrv="objjsprouter" />
+			</serviciosPrg>
+		</programa>
+	   	 <programa name="prgAplicaciones">
+	        	<atributos>
+	        		<servicioIni>srvlink</servicioIni>
+	            	<AliasJspSalida>salidaAplicacionesJSP</AliasJspSalida>
+	        	</atributos>
+				<serviciosPrg>
+					<servicioPrg id="srvlink" sgteSrv="objetoPaginacionAplicaciones"/>
+				</serviciosPrg>
+	   	</programa>
+	</programas>
+    <servicios>
+		<servicio>
+			<idservicio key="srvlink" tipoCtrl="etc" />
+			<session>si</session>
+			<modo>none</modo>
+			<tipoparser>HtmlJsp</tipoparser>
+			<consname>sinConsulta</consname>
+		</servicio>	
+		<servicio>
+			<idservicio key="srvlogin" tipoCtrl="etc" />
+			<session>no</session>
+			<modo>none</modo>
+			<tipoparser>Login</tipoparser>
+			<consname>sinConsulta</consname>
+		</servicio>		
+		<servicio>
+			<idservicio key="srvlogoff" tipoCtrl="etc" />
+			<session>si</session>
+			<modo>none</modo>
+			<tipoparser>Logoff</tipoparser>
+			<consname>sinConsulta</consname>
+		</servicio>
+		<servicio>
+			<idservicio key="srvobj" tipoCtrl="etc" />
+			<session>si</session>
+			<modo>none</modo>
+			<tipoparser>HtmlJsp</tipoparser>
+			<consname>sinConsulta</consname>
+		</servicio>
+		<servicio>
+			<idservicio key="srvetc" tipoCtrl="etc" />
+			<session>si</session>
+			<modo>none</modo>
+			<tipoparser>HtmlJsp</tipoparser>
+			<consname>sinConsulta</consname>
+		</servicio>			
+		<servicio>
+			<idservicio key="srvlinkss" tipoCtrl="etc" />
+			<session>no</session>
+			<modo>none</modo>
+			<tipoparser>HtmlJsp</tipoparser>
+			<consname>sinConsulta</consname>
+		</servicio>
+    </servicios>
+    
+    <objetos>  
+		<objeto id="objlogin">cl.altair.portal.usuario.BOLogin</objeto>
+		<objeto id="objcambiaclave">cl.altair.portal.usuario.BOCambioClave</objeto>
+		<objeto id="objverificamail">cl.altair.portal.registro.BOVerificaMail</objeto>
+		<objeto id="objvalidacodigo">cl.altair.portal.registro.BOValidaCodigo</objeto>
+		<objeto id="objregistrousr">cl.altair.portal.registro.BORegistroUsr</objeto>
+		<objeto id="objcreausuario">cl.altair.portal.registro.BOCreaUsuario</objeto>
+		<objeto id="objValUsr">cl.altair.portal.usuario.BOValidaUsrParaClave</objeto>	
+		<objeto id="objVallink">cl.altair.portal.usuario.BOValidaLink</objeto>
+		<objeto id="objsetclave">cl.altair.portal.usuario.BOSetClave</objeto>
+		<objeto id="objjsprouter">cl.altair.general.BOCallLink</objeto>
+		<objeto id="objetoPaginacionAplicaciones">cl.altair.intranet.mantenedores.perfiles.BOPaginacionAplicaciones</objeto>
+    </objetos>
+</APLICACION>

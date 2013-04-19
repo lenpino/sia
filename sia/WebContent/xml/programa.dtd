@@ -1,0 +1,70 @@
+<?xml encoding="US-ASCII"?>
+<!ELEMENT APLICACION (ini,xmls,errores,programas,servicios,objetos)>
+	<!ELEMENT ini (conecciones)>
+		<!ELEMENT conecciones (DBconns*,MQconns*)>
+			<!ELEMENT DBconns (DBconn)*>
+				<!ELEMENT DBconn (user?,password?,poolname,contextclass?,url*,driver*)>
+				<!ATTLIST DBconn DBconnid ID #REQUIRED>
+					<!ELEMENT user (#PCDATA)>
+					<!ELEMENT password (#PCDATA)>
+					<!ELEMENT poolname (#PCDATA)>
+					<!ELEMENT contextclass (#PCDATA)>
+					<!ELEMENT url (#PCDATA)>
+					<!ELEMENT driver (#PCDATA)>
+			<!ELEMENT MQconns (MQconn)*>
+				<!ELEMENT MQconn (nombreQM,hostMQ,channelMQ,portMQ,userMQ?,passwordMQ?)>
+				<!ATTLIST MQconn MQconnid ID #REQUIRED>
+					<!ELEMENT nombreQM (#PCDATA)>
+					<!ELEMENT hostMQ (#PCDATA)>
+					<!ELEMENT channelMQ (#PCDATA)>
+					<!ELEMENT portMQ (#PCDATA)>
+					<!ELEMENT userMQ (#PCDATA)>
+					<!ELEMENT passwordMQ (#PCDATA)>
+	<!ELEMENT xmls (xml)*>
+		<!ELEMENT xml (path)>
+		<!ATTLIST xml type ID #REQUIRED>
+			<!ELEMENT path (#PCDATA)>
+	<!ELEMENT errores (error)+>
+		<!ELEMENT error (AliasJspError)>
+		<!ATTLIST error idError CDATA #REQUIRED>
+			<!ELEMENT AliasJspError (#PCDATA)>
+	<!ELEMENT programas (programa)+>
+		<!ELEMENT programa (atributos,serviciosPrg)>
+		<!ATTLIST programa name ID #REQUIRED>
+			<!ELEMENT atributos (servicioIni,AliasJspSalida*,pagina*,hibernate*,invalidaSesion*,objCtrlExcepciones*,paginacionDta*)>
+				<!ELEMENT servicioIni (#PCDATA)>
+				<!ELEMENT AliasJspSalida (#PCDATA)>
+				<!ELEMENT pagina (#PCDATA)>
+				<!ELEMENT hibernate (#PCDATA)>
+                <!ELEMENT invalidaSesion (#PCDATA)>
+				<!ELEMENT objCtrlExcepciones (#PCDATA)>
+				<!ELEMENT paginacionDta (beanPaginado,numLineas,numCol,aliasServlet,program,imagenes)>
+					<!ELEMENT beanPaginado (#PCDATA)>
+					<!ELEMENT numLineas (#PCDATA)>
+					<!ELEMENT numCol (#PCDATA)>
+					<!ELEMENT aliasServlet (#PCDATA)>
+					<!ELEMENT program (#PCDATA)>
+					<!ELEMENT imagenes (pathURL,prevAct,prevInact,sgteAct,sgteInact)>
+						<!ELEMENT pathURL (#PCDATA)>
+						<!ELEMENT prevAct (#PCDATA)>
+						<!ELEMENT prevInact (#PCDATA)>
+						<!ELEMENT sgteAct (#PCDATA)>
+						<!ELEMENT sgteInact (#PCDATA)>
+			<!ELEMENT serviciosPrg (servicioPrg+)>
+				<!ELEMENT servicioPrg (#PCDATA)>
+				<!ATTLIST servicioPrg id CDATA #REQUIRED>
+				<!ATTLIST servicioPrg sgteSrv CDATA #IMPLIED>
+	<!ELEMENT servicios (servicio+)>
+		<!ELEMENT servicio (idservicio,session,modo,beanSalida?,tipoparser,consname)>
+			<!ELEMENT idservicio (#PCDATA)>
+			<!ATTLIST idservicio key ID #REQUIRED>
+			<!ATTLIST idservicio tipoCtrl CDATA #REQUIRED>
+			<!ELEMENT session (#PCDATA)>
+			<!ELEMENT modo (#PCDATA)>
+			<!ELEMENT beanSalida (#PCDATA)>
+			<!ELEMENT timeout (#PCDATA)>
+			<!ELEMENT tipoparser (#PCDATA)>
+			<!ELEMENT consname (#PCDATA)>
+	<!ELEMENT objetos (objeto+)>
+		<!ELEMENT objeto (#PCDATA)>
+		<!ATTLIST objeto id ID #REQUIRED>

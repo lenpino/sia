@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE Consltas SYSTEM "consultas.dtd">
+<consultas>
+	<params>
+		<param name="whichQuery">
+			<type>N</type>
+			<len>2</len>
+		</param>
+		<param name="cod_banco">
+			<type>C</type>
+			<len>10</len>
+		</param>
+		<param name="web_tasa_acc">
+			<type>U</type>
+			<len>8</len>
+		</param>
+		<param name="tiene_apv">
+			<type>B</type>
+			<len>6</len>
+		</param>
+	</params>
+	<strprocs>
+		<strproc strname="sp_ext_oc_key">
+			<inparams>
+				<instrparams>codprov</instrparams>
+				<instrparams>codsuc</instrparams>
+				<instrparams>estado</instrparams>
+				<instrparams>tipo</instrparams>
+				<instrparams>whichQuery</instrparams>
+			</inparams>
+			<outparams>
+				<outstrparams>resultset</outstrparams>
+			</outparams>
+		</strproc>
+	</strprocs>
+	<conssps>
+		<conssp consname="SPVENTAS">
+			<considpool>emitidos</considpool>
+			<consbean>StrProcPLSQL</consbean>
+			<consstrproc>sp_ext_ic_ventas</consstrproc>
+		</conssp>
+		<conssp consname="SPMUTUAL">
+			<considpool>emitidos</considpool>
+			<consbean>StrProcBean30</consbean>
+			<consstrproc>sp_LST_InstitucionesPorTipo</consstrproc>
+		</conssp>		
+	</conssps>
+	<conssqls>
+		<conssql consnamesql="SQLLOGIN">
+			<considpoolsql>emitidos</considpoolsql>
+			<consbeansql>SelectJDBCBean</consbeansql>
+			<sql>select * from usuario where login=?</sql>
+			<paramsSQL>
+				<nomparamSQL>usuario</nomparamSQL>
+			</paramsSQL>
+		</conssql>
+	</conssqls>
+	<constxs>
+		<constx consnametx="TXPUBLICAOC">
+			<considpooltx>oracleds</considpooltx>
+			<bean>TrxBean</bean>
+			<sps>
+				<sp sppar="pubOC">sp_ext_ins_orden</sp>
+				<sp sppar="pubDO">sp_ext_ins_orden_do</sp>
+				<sp sppar="pubDA">sp_ext_ins_orden_da</sp>
+				<sp sppar="pubDB">sp_ext_ins_orden_db</sp>
+				<sp sppar="pubXD">sp_ext_ins_orden_xd</sp>
+				<sp sppar="pubDT">sp_ext_ins_orden_dt</sp>
+			</sps>
+		</constx>
+		<constx consnametx="TXINSDETINP">
+			<considpooltx>sqlserver</considpooltx>
+			<bean>TrxBean</bean>
+			<sps>
+				<sp sppar="detInp">sp_INS_Detalle_INPFONASA</sp>
+			</sps>
+		</constx>
+	</constxs>
+</consultas>

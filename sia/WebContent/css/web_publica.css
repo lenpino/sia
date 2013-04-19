@@ -1,0 +1,220 @@
+@charset "utf-8";
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-repeat: no-repeat;
+	background-color: #FFFFFF;
+	background-image: url();
+}
+
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+a:visited {
+	color: #333333;
+}
+
+.titulos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-weight: normal;
+	color: #FF8A00;
+	font-variant: normal;
+}
+
+.subtitulos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #666666;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #333333;
+}
+
+a:active {
+	color: #333333;
+}
+
+a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+
+.boton_ppal {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-repeat: no-repeat;
+	background-image: url("../images/click_here.gif");
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	right: auto;
+	width: 71px;
+	height: 22px;
+	border: 0;
+	text-align: right;
+	padding-right: 7px;
+}
+
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-repeat: no-repeat;
+}
+
+.noticias {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #333333;
+	font-style: normal;
+}
+
+.texto {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.textobold {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	font-weight: bold;
+}
+
+.boton_login {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-repeat: no-repeat;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	width: 51px;
+	border: 0;
+	height: 22px;
+	background-image: url("../images/clear.gif");
+	background-repeat: no-repeat;
+}
+
+.titulo_login {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FF8A00;
+	font-variant: normal;
+}
+
+.noticiasbold {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #333333;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.texto_bco {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.textospie {
+	color: #666666;
+	font: normal 9px Verdana, Arial, Helvetica, sans-serif;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.titulos_tabla {
+	font-size: 11px;
+	color: #FF8A00;
+	font-variant: normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left: 5px;
+}
+
+.btn_caja {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.sotwaretext {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 7.8px;
+	color: #000000;
+	font-style: normal;
+	font-weight: bold;
+}
+
+
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px; /*--Set height of tabs--*/
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	width: 100%;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px; /*--Subtract 1px from the height of the unordered list--*/
+	line-height: 31px; /*--Vertically aligns the text within the tab--*/
+	border: 1px solid #999;
+	border-left: none;
+	margin-bottom: -1px; /*--Pull the list item down 1px--*/
+	overflow: hidden;
+	position: relative;
+	background: #e0e0e0;
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size: 1.2em;
+	padding: 0 20px;
+	border: 1px solid #fff; /*--Gives the bevel look with a 1px white border inside the list item--*/
+	outline: none;
+}
+ul.tabs li a:hover {
+	background: #ccc;
+}
+html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not
+        listen to the hover properties--*/
+	background: #fff;
+	border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with
+        its content--*/
+}
+.tab_container {
+	border: 1px solid #999;
+	border-top: none;
+	overflow: hidden;
+	clear: both;
+	float: left; width: 100%;
+	background: #fff;
+}
+.tab_content {
+	padding: 20px;
+	font-size: 1.2em;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="sia" path="/sia">
+<Manager pathname="" />
+<ResourceLink 
+			name="jdbc/perfilDS" 
+			type="javax.sql.DataSource" 
+			global="jdbc/perfilDS"/>    	
+<ResourceLink 
+			name="jdbc/servelDS" 
+			type="javax.sql.DataSource" 
+			global="jdbc/servelDS"/>    	
+</Context>
