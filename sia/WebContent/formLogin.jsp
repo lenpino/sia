@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="msg"  class="java.lang.String" scope="request" />
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -41,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<section id="bajada">
 							<div id="respuestaAccion" style="padding-top:160px; padding-left:340px; width:400px;">	
 							<div id="tab2" class="main" style="width: 340px; height: 280px;">
-								<form id="formularioLogIn" name="formularioLogIn">
+								<form id="formularioLogIn" name="formularioLogIn" action="fce" method="post">
 								<fieldset style="border: 0px groove threedface;">
 						           <div class="cont_form_pestanas" id="tabla" style="padding-left: 30px;">
 						             <div class="titulo_grilla_top" style="font-size:18px;">Ingrese sus Datos</div>
@@ -61,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						               </div>
 						             </div>
 						             <div class="cont_boton_pestana2 border-bottom" style="padding-left: 85px; padding-bottom:20px;">
-										<button id="submit" name="submit"  type="submit" class="button"  style="font-family: arial;font-size:12px;text-align:right; padding: 7px 9px 7px;">Inicio de sesión</button>
+										<button id="submit" name="submit"  type="submit" class="button"  style="font-family: arial;font-size:12px;text-align:right; padding: 7px 9px 7px;" onclick="callFce()">Inicio de sesión</button>
 						             </div>
 						           <div class="cont_form_pestanas">
 						           	<div class="text_form_fila" style="float:none; width:auto;">
@@ -104,6 +105,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!--FIN FOOTER-->
 				</div>
 		</div>
-		<div id="dialog" title="Error de Ingreso" style="text-align: center;"></div>
+		<div id="dialog" title="Error de Ingreso" style="text-align: center;"><%=msg %></div>
 	</body>
 </html>

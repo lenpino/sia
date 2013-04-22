@@ -106,9 +106,9 @@
 			<div class="dropdown_2columns">
 				<div class="col_2">
 					<ul style="margin:0 0 1px 0;">
-						<li><a target="frame" href="<%=basePath%>fce?reqName=prglink&pagina=modificaUsuario">&nbsp;Editar Usuario</a></li>
+						<li><a href="#" class="listMant" id="lnkmantusuario">&nbsp;Editar Usuario</a></li>
 						<li><a href="javascript:void(0);">&nbsp;Cambiar Perfil Activo</a></li>
-						<li><a target="frame" href="<%=basePath%>fce?reqName=prglink&pagina=cambiaclave">&nbsp;Cambiar Contrase&ntilde;a</a></li>
+						<li><a href="<%=basePath%>fce?reqName=prglink&pagina=cambiaclave">&nbsp;Cambiar Contrase&ntilde;a</a></li>
 					</ul>
 				</div>
 			</div>

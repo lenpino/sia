@@ -79,7 +79,8 @@ function cargaGrillaAplicaciones(){
 }
 
 $(document).ready(function() {
-	cargaGrillaAplicaciones();   
+	cargaGrillaAplicaciones();  
+	muestraMensaje();
 	$("#lnkmantaplicaciones").on('click', function(){
 		$.ajax({
 	        url: "fce?reqName=prglink&pagina=salidaAplicacionesJSP",
@@ -93,4 +94,36 @@ $(document).ready(function() {
 		});   
 	});
 
+	$("#lnkmantusuario").on('click', function(){
+		$.ajax({
+	        url: "fce?reqName=prglink&pagina=modificaUsuario",
+	        context: document.body,
+			success: function(responseText, textStatus, jqXHR) {
+				$("#respuestaAccion").html(responseText, function() {
+					$.getScript('js/jquery/js/jquery-1.8.0.min.js');
+					$.getScript('js/portal/formDatosUsr.js');
+					$.getScript('js/jquery/plugins/validationEngine/jquery.validationEngine.js');
+					$.getScript('js/jquery/plugins/validationEngine/jquery.validationEngine-es.js');
+				});
+				cargaElementos();
+			}
+		});   
+	});
+
 });
+
+function muestraMensaje(){
+   //Funcionalidad para mostrar dialogos con mensajes desde el servidor
+   var mensaje = $("#dialog").text();
+   if(mensaje != ""){
+	   $("#dialog").html(mensaje);
+		$("#dialog").dialog({
+			modal: true,
+			buttons: {
+				Ok: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+   }
+}

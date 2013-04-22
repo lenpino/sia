@@ -11,7 +11,7 @@
                     "alertTextCheckboxMultiple": "* Por favor seleccione una opción",
                     "alertTextCheckboxe": "* Este checkbox es obligatorio"
                 },
-                "requiredInFunction": {
+                "requiredInFunction": { 
                     "func": function(field, rules, i, options){
                         return (field.val() == "test") ? true : false;
                     },
@@ -46,7 +46,7 @@
                 "future": {
                     "regex": "none",
                     "alertText": "* Fecha posterior a "
-                },
+                },	
                 "maxCheckbox": {
                     "regex": "none",
                     "alertText": "* Se ha excedido el número de opciones permitidas"
@@ -117,7 +117,7 @@
                 },
                 "ajaxNameCall": {
 					// remote json service location
-                    "url": "fce?reqName=prgInsertaGiro",
+                    "url": "ajaxValidateFieldName",
 					// error
                     "alertText": "* Este nombre ya se encuentra usado",
 					// if you provide an "alertTextOk", it will show as a green prompt when the field validates
@@ -127,25 +127,9 @@
                 },
                 "validate2fields": {
                     "alertText": "* Por favor entrar HELLO"
-                },
-                "validarut": {
-                    "url": "fce?reqName=prgMantenedorClienteServices",
-                    "extraData": "action=3",
-                    "extraDataDynamic": ['#clienteDialogRutField'],
-                    "alertText": "* Rut ya esta registrado como cliente"
-                   // "alertTextOk": "",//"* Rut permitido",
-                   // "alertTextLoad": "* Validatando Rut..,"
                 }
-                /*"validateRutCall":{
-                         "nname":"validateRutField",
-                         "alertTextOk": "* Rut valido",
-                         "alertText":"* Rut invalido"
-                }*/
-
-
-
             };
-
+            
         }
     };
     $.validationEngineLanguage.newLang();

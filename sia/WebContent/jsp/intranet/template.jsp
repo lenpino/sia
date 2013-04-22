@@ -1,4 +1,5 @@
 <jsp:useBean id="url" class="java.lang.String" scope="request" />
+<jsp:useBean id="msg" class="java.lang.String" scope="request" />
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -19,15 +20,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath %>js/jquery/plugins/jqgrid/src/i18n/grid.locale-es.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/jquery/plugins/jqgrid/js/jquery.jqGrid.min.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/intranet/template.js"></script>
+		
+		<script type="text/javascript"  src="<%=basePath %>js/portal/formDatosUsr.js"></script>
+		<script type="text/javascript" src="<%=basePath %>js/jquery/plugins/validationEngine/jquery.validationEngine.js"></script>
+		<script type="text/javascript" src="<%=basePath %>js/jquery/plugins/validationEngine/jquery.validationEngine-es.js"></script>
+		<script type="text/javascript" src="<%=basePath %>js/jquery/plugins/jquery.combobox.js"></script>
 
 		
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>js/jquery/css/ui-lightness/jquery-ui-1.8.23.custom.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/estilos.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/estilosE.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/nuevo.css" />
  		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/menu.css" />
  		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/lightbiz/style.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/lightbiz/reset.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/lightbiz/forms.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/lightbiz/skeleton.css" />
  		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>js/jquery/plugins/jqgrid/css/ui.jqgrid.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>js/jquery/plugins/jqgrid/plugins/ui.multiselect.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/validationEngine/validationEngine.jquery.css" />
  		
 		<link href="icon/favicon.ico" rel="shortcut icon"/>
 	</head>
@@ -60,6 +71,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<!--FIN CONTENEDOR-->
 		
-		<div id="dialog" title="Error de Ingreso" style="text-align: center;"></div>
+		<div id="dialog" title="Error de Ingreso" style="text-align: center;"><%=msg%></div>
 		</body>
 </html>

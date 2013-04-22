@@ -9,6 +9,10 @@
 			<uri>/index.jsp</uri>
 		</page>
 		<page>
+			<page-name>login</page-name>
+			<uri>/formLogin.jsp</uri>
+		</page>
+		<page>
 		    <page-name>registro</page-name>
 		    <uri>/jsp/accesos/publico/registro.jsp</uri>
 		</page>
@@ -39,6 +43,10 @@
 		<page>		
 		    <page-name>salidaAplicacionesJSP</page-name>
 		     <uri>/jsp/intranet/perfiles/aplicacion/index.jsp</uri>
+		</page>
+		<page>
+			<page-name>modificaUsuario</page-name>
+		    <uri>/jsp/portal/formDatosUsr.jsp</uri>
 		</page>
 		<error-page>
 			<uri>/jsp/comunes/error/serviceUnavailable.jsp</uri>

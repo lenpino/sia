@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										               </div>
 										             </div>
 													<td style="vertical-align:top;">
-														<button id="submit" name="submit"  type="submit" class="button"  style="font-family: arial;font-size:12px;text-align:right; float:none; padding: 7px 11px 5px 11px;">Enviar</button>
+														<button id="submit" name="submit" type="submit" class="button"  style="font-family: arial;font-size:12px;text-align:right; float:none; padding: 7px 11px 5px 11px;">Enviar</button>
 													</td>
 												</tr>
 											</table>

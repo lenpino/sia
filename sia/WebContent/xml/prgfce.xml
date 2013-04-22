@@ -120,6 +120,15 @@
 					<servicioPrg id="srvlink" sgteSrv="objetoPaginacionAplicaciones"/>
 				</serviciosPrg>
 	   	</programa>
+	   	<programa name="prggrabausuario">
+	        	<atributos>
+	        		<servicioIni>srvobj</servicioIni>
+	            	<AliasJspSalida>intranet</AliasJspSalida>
+	        	</atributos>
+				<serviciosPrg>
+					<servicioPrg id="srvobj" sgteSrv="objModificarUsuarios"/>
+				</serviciosPrg>
+	   	</programa>	
 	</programas>
     <servicios>
 		<servicio>
@@ -178,5 +187,6 @@
 		<objeto id="objsetclave">cl.altair.portal.usuario.BOSetClave</objeto>
 		<objeto id="objjsprouter">cl.altair.general.BOCallLink</objeto>
 		<objeto id="objetoPaginacionAplicaciones">cl.altair.intranet.mantenedores.perfiles.BOPaginacionAplicaciones</objeto>
+		<objeto id="objModificarUsuarios">cl.altair.portal.usuario.BOModificarUsuarios</objeto>
     </objetos>
 </APLICACION>
