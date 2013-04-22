@@ -3,37 +3,6 @@ $(document).ready(function() {
 		$("#formularioLogIn").validationEngine('attach',{
 			autoPositionUpdate:true,
 			focusFirstField : true,
-		    onValidationComplete: function(form, status){
-		    	if(status == true){
-				dataString = $("#formularioLogIn").serialize();
-			    $.ajax({
-			        url: "fce",
-			        data: dataString,
-			        context: document.body,
-				   success: function(responseText, textStatus, jqXHR) {
-					   if (jqXHR.getResponseHeader('ERROR') == '0'){
-						   //Respuesta correcta desde el servidor
-						   $("body").html(responseText);
-						   $.getScript('js/portal/formLogin.js');
-						   //Setea el background del cuerpo
-					   }
-					   else{
-						   $("#dialog").html(responseText);
-				   			$("#dialog").dialog({
-								modal: true,
-								buttons: {
-									Ok: function() {
-										$( this ).dialog( "close" );
-									}
-								}
-				   			});
-					   }
-				   	}
-			    }); 
-			 }else {
-			    return false;
-			 }
-		    } 
 		});
 		
 		//Esconde el formulario con el dato del rut para la solicitud de clave div w/id extra
@@ -48,7 +17,21 @@ $(document).ready(function() {
 				$("#tabla").show("fast");
 				$("#extra").hide("fast");
 		  });
-		
+		  
+		   //Funcionalidad para mostrar dialogos con mensajes desde el servidor
+		   var mensaje = $("#dialog").text();
+		   if(mensaje != ""){
+			   $("#dialog").html(mensaje);
+	  			$("#dialog").dialog({
+					modal: true,
+					buttons: {
+						Ok: function() {
+							$( this ).dialog( "close" );
+						}
+					}
+	  			});
+		   }
+
 });
 
 function solicitaClave() {
@@ -75,3 +58,6 @@ function solicitaClave() {
 });   
 };
 
+function callFce(){
+	$("form").submit();
+}
