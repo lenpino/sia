@@ -22,11 +22,11 @@ public class BOLogin extends BusinessObjectClass implements FceObjectInterface {
 
 	private static final int MAX_INTENTOS = 3;
 	Integer integer;
-	public String otherPage;
 	String weblogin = "";
 	String webclave = "";
 	UsuarioDAO userDAO = new UsuarioDAO();
-	private StringBuilder html = new StringBuilder();
+//	private StringBuilder html = new StringBuilder();
+	private String mensaje = "";
 	
 	@Override
 	public void getContext(HttpServletRequest request) {
@@ -83,12 +83,10 @@ public class BOLogin extends BusinessObjectClass implements FceObjectInterface {
 				copySesion.setAttribute("tries", integer);
 				copySesion.setAttribute("estado", Integer.valueOf(1));
 				if(integer.intValue() >= MAX_INTENTOS)
-					html.append("Usuario Bloqueado");				    	
+					mensaje = "Usuario Bloqueado";				    	
 				else
-					html.append("Usuario o clave incorrecto");
-				copyResponse.addHeader("ERROR","1");
-				sgteServicio = null;
-				return;
+					mensaje = "Usuario o clave incorrecto";
+				otherPage = "login";
 			} else /*if(AdmSesiones.existeSesion(usuario.getDni())){
 				logs.info("El usuario RUT " + usuario.getDni() + " ya tiene sesion");
 				//Configura la salida para escribir los mensajes
@@ -100,25 +98,20 @@ public class BOLogin extends BusinessObjectClass implements FceObjectInterface {
 				return;
 			} else*/ if(!usuario.getEstado().getNombre().equalsIgnoreCase("activo")){
 				logs.info("El usuario RUT " + usuario.getDni() + " no esta activo");
-		    	html.append("Usuario no esta activo");
-		    	copyResponse.addHeader("ERROR","1");
-				sgteServicio = null;
-				return;
-			} else
-				if(!validaPassword(webclave, usuario)){
+		    	mensaje = "Usuario no esta activo";
+				otherPage = "login";
+			} else if(!validaPassword(webclave, usuario)){
 					logs.info("Clase: BOLogin - Error: Clave incorrecta");					
 					integer = Integer.valueOf(integer.intValue() + 1);
 					copySesion.setAttribute("tries", integer);
 					copySesion.setAttribute("estado", Integer.valueOf(1));
 
 					if(integer.intValue() >= MAX_INTENTOS){
-				    	html.append("Usuario Bloqueado");				    	
+				    	mensaje = "Usuario Bloqueado";				    	
 					} else {
-						html.append("Usuario o clave incorrecto");				    	
+						mensaje = "Usuario o clave incorrecto";				    	
 					}
-					copyResponse.addHeader("ERROR","1");
-					sgteServicio = null;	
-					return;
+					otherPage = "login";
 				}  else {
 					//Reset del numero de intentos
 					if(integer.intValue() > 0)
@@ -127,10 +120,8 @@ public class BOLogin extends BusinessObjectClass implements FceObjectInterface {
 					logs.info("Clase: BOLogin - Msg: El perfil fue creado");	
 					//Si el usuario no tiene roles asociados se devuelve un mensaje de error
 					if(elPerfil.getRoles().size() == 0){
-						html.append("Usuario no posee roles");	
-						copyResponse.addHeader("ERROR","1");
-						sgteServicio = null;	
-						return;						
+						mensaje = "Usuario no posee roles";					
+						otherPage = "login";
 					}
 					copySesion.setAttribute("estado", Integer.valueOf(0));
 					//Se almacena su numero de identiicacion nacional para generar traza asociada a el
@@ -148,10 +139,8 @@ public class BOLogin extends BusinessObjectClass implements FceObjectInterface {
 						elPerfil.setRolActivo(elPerfil.getRoles().get(0));
 						//Si el usuario no posee empresas asociadas se envia un mensaje de error (esto no deberia ocurrir)
 						if(elPerfil.getEmpresas(elPerfil.getRoles().get(0)).isEmpty()){
-							html.append("Usuario no posee empresas relacionadas");	
-							copyResponse.addHeader("ERROR","1");
-							sgteServicio = null;	
-							return;														
+							mensaje = "Usuario no posee empresas relacionadas";															
+							otherPage = "login";
 						}
 					} else {
 						//Se asigna por default el rol CONSULTA como rol activo tanto en el perfil como en la sesion
@@ -162,20 +151,17 @@ public class BOLogin extends BusinessObjectClass implements FceObjectInterface {
 							}
 						}
 						if(elPerfil.getRolActivo() == null){
-					    	html.append("Usuario no posee rol consulta");		
-					    	copyResponse.addHeader("ERROR","1");
-							sgteServicio = null;	
-							return;							
+					    	mensaje = "Usuario no posee rol consulta";					
+							otherPage = "login";
 						}
 					}
-					//Se incorpora esta informacion para discriminar en el JS si se trata solo de un mensaje o de la pagina de respuesta
-					copyResponse.addHeader("ERROR","0");
-					sgteServicio = null;
-					return;
 				}
+			//Coloco en el request  el mensaje que corresponda.
+			copyRequest.setAttribute("msg", mensaje);
+			sgteServicio = null;
+			return;
 		}
 		catch(Exception exception)	{
-			copyResponse.addHeader("ERROR","1");
 			if(exception instanceof WSPgrmCallException)
 			{
 				throw (WSPgrmCallException)exception;
@@ -191,12 +177,7 @@ public class BOLogin extends BusinessObjectClass implements FceObjectInterface {
 
 	@Override
 	public Object getObjectResult() {
-		if(html.length() == 0)
-			return null;
-		else {
-			copyRequest.setAttribute("fmtSalida", "html");
-			return html.toString();
-		}
+		return null;
 	}
 
 	@Override
