@@ -56,9 +56,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<form id="paso1">
 							
 							<div style="width:750px; color: #FFFFFF;">
-								<strong>IPSUM LOREN</strong><br/><br/>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/><br/>
-								Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/>
+								<strong>REGISTRO DE USUARIOS</strong><br/><br/>
+								En dos simples pasos regístrese como usuario y podrá descargar y utilizar Gratuitamente y en forma indefinida nuestro software de Control de acceso y administración de edificios.<br/><br/>
 							</div>
 								
 							<div id="wizard" class="swMain" style="width:750px;">
@@ -148,9 +147,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</div>
 											
 											<div id="step-question-default" class="userform" style="float:left; margin: 0 0 0 6px; width:247px; height:274px;">
-												<font size="2"><strong>Descripci&oacute;n</strong></font><br/><br/>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-												sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/><br/> 
+												<font size="2"><strong>Informacion Personal</strong></font><br/><br/>
+												La información personal es utilizada 
+												únicamente para su registro.<br/><br/> 
 												Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/> 
 												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>
 												<!-- <img id="btnCerrarDefault" src="/acepta/imagenes/btn_cerrar.png" border="0"/> -->
@@ -172,7 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Raz&oacute;n Social:</td>
 																<td>
 																	<font color="#ff0000">*</font>
-																	<input class="input validate[required] text-input" type="text" id="razon" name="razon"  maxlength="18"/>
+																	<input class="input validate[required] text-input" type="text" id="razon" name="razon"  maxlength="50"/>
 																</td>
 															</tr>
 															<tr>								

@@ -13,8 +13,12 @@
 			<uri>/formLogin.jsp</uri>
 		</page>
 		<page>
+			<page-name>download</page-name>
+			<uri>/jsp/portal/publico/download/iconserje.jsp</uri>
+		</page>		
+		<page>
 		    <page-name>registro</page-name>
-		    <uri>/jsp/accesos/publico/registro.jsp</uri>
+		    <uri>/jsp/portal/publico/registro.jsp</uri>
 		</page>
 		<page>
 		    <page-name>accesos</page-name>

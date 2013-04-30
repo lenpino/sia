@@ -69,7 +69,7 @@
 		<programa name="prgregistrousr">
 			<atributos>
 				<servicioIni>srvlinkss</servicioIni>
-				<AliasJspSalida>home</AliasJspSalida>
+				<AliasJspSalida>download</AliasJspSalida>
 			</atributos>
 			<serviciosPrg>
 				<servicioPrg id="srvlinkss" sgteSrv="objregistrousr" />
