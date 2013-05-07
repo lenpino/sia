@@ -1,12 +1,33 @@
 $(document).ready(function() {
 	cargaElementos();
 	
+	$("#questionRut").click(function() {
+		$("#step-Rut").show();
+		$("#step-question-default").hide();
+		$("#step-Giro").hide();
+		$("#step-Razon").hide();
+	});
+
+	$("#questionRazon").click(function() {
+		$("#step-Razon").show();
+		$("#step-question-default").hide();
+		$("#step-Rut").hide();
+		$("#step-Giro").hide();
+	});
+	
+	$("#questionGiro").click(function() {
+		$("#step-Giro").show();
+		$("#step-question-default").hide();
+		$("#step-Rut").hide();
+		$("#step-Razon").hide();
+	});
+
 	$(".btnCerrar").click(function()
 	{
 		$("#step-question-default").show();
-		$("#step-NumSerial").hide();
-		$("#step-TipDoc").hide();
-		$("#step-VigCert").hide();
+		$("#step-Giro").hide();
+		$("#step-Razon").hide();
+		$("#step-Rut").hide();
 	});
 	
 	$.validator.addMethod(
@@ -20,7 +41,12 @@ $(document).ready(function() {
 		    },
 		    "Ingrese la fecha en el formato dd-mm-yyyy"
 	);
-		
+	$(':input:enabled:visible:first').focus();
+	
+	$("#clave").passField({
+	    showGenerate: false,
+	    showToggle: false
+	});
 });
 
 
@@ -44,8 +70,8 @@ function cargaElementos(){
     $("#comuna").combobox({});
     
     //Aplica estilos de ancho y alto al combo de las comunas
-    $("#idcombo > input.ui-autocomplete-input").css('width', '157px');
-    $("#idcombo > input.ui-autocomplete-input").css('height', '24px');
+    $("#idcombo > input.ui-autocomplete-input").css('width', '149px');
+    $("#idcombo > input.ui-autocomplete-input").css('height', '20px');
 
 	// Smart Wizard 	
 		$('#wizard').smartWizard({
@@ -140,8 +166,7 @@ function validateSteps(stepnumber){
 	    				$("#nombreUsuario").validationEngine('validate') ||
 	    				$("#apellidoPaterno").validationEngine('validate') ||
 	    				$("#emailUsuario").validationEngine('validate') ||
-	    				$("#fechanac").validationEngine('validate') ||
-	    				$("#movilUsuario").validationEngine('validate'));
+	    				$("#fechanac").validationEngine('validate'));
   } else if(stepnumber == 2){
 	  isStepValid = !($("#rutemp").validationEngine('validate') ||
 			  			$("#razon").validationEngine('validate') ||

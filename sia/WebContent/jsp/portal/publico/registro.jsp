@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8"%>
 <jsp:useBean id="codigo" scope="request" class="java.lang.String" />
 <jsp:useBean id="email" scope="request" class="java.lang.String" />
 <%
@@ -9,10 +10,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 
 	<title>ALTAIR</title>
-	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>js/jquery/css/ui-lightness/jquery-ui-1.8.23.custom.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>js/jquery/css/synnex/jquery-ui-1.10.3.custom.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/estilos.css"  />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/nuevo.css"  />
-	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/password.css"  />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/menu.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/validationEngine/validationEngine.jquery.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/smartWizard/smart_wizard.css"  />
@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/lightbiz/reset.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/lightbiz/forms.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>css/lightbiz/skeleton.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<%=basePath %>js/jquery/plugins/passfield/passfield.min.css" />
 	
 	<link href="<%=basePath %>icon/favicon.ico" rel="shortcut icon"/>
 	
@@ -30,6 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=basePath %>js/jquery/plugins/validationEngine/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="<%=basePath %>js/jquery/plugins/validationEngine/jquery.validationEngine-es.js"></script>
 	<script type="text/javascript" src="<%=basePath %>js/jquery/plugins/jquery.combobox.js"></script>
+	<script type="text/javascript" src="<%=basePath %>js/jquery/plugins/passfield/passfield.min.js"></script>
 	<script type="text/javascript"  src="<%=basePath %>js/jquery/plugins/smartWizard/jquery.smartWizard.js"></script>
 	<script type="text/javascript"  src="<%=basePath %>js/jquery/js/jquery.Rut.js"></script>
 	<script type="text/javascript"  src="<%=basePath %>js/portal/registro.js"></script>
@@ -57,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							
 							<div style="width:750px; color: #FFFFFF;">
 								<strong>REGISTRO DE USUARIOS</strong><br/><br/>
-								En dos simples pasos regÌstrese como usuario y podr· descargar y utilizar Gratuitamente y en forma indefinida nuestro software de Control de acceso y administraciÛn de edificios.<br/><br/>
+								En dos simples pasos reg√≠strese como usuario y podr√° descargar y utilizar Gratuitamente y en forma indefinida nuestro software de Control de acceso y administraci√≥n de edificios.<br/><br/>
 							</div>
 								
 							<div id="wizard" class="swMain" style="width:750px;">
@@ -82,60 +84,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<fieldset>
 													<div>
 													<table border="0" style="width:420px;">
-														<tr>
+														<tr style="height:30px;">
 															<td style="width:150px; font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">RUT:</td>
 															<td style="width:10px;"><font color="#ff0000">*</font></td>
-															<td style="width:190px;"><input class="input validate[required,funcCall[checkRutField]]" type="text" id="dniUsuario2" name="dniUsuario2"  maxlength="18" data-prompt-position="bottomRight"/></td>
-															<td style="width:70px;">&nbsp;</td>
+															<td style="width:200px;"><input class="input validate[required,funcCall[checkRutField]]" type="text" id="dniUsuario2" name="dniUsuario2"  maxlength="18" data-prompt-position="bottomRight"/></td>
+															<td style="width:5px;">&nbsp;</td>
 														</tr>
-														<tr>								
+														<tr style="height:30px;">								
 															<td	style="font-size:12px; font-weight:bold; text-shadow:2px 2px 2px #ccc;">Clave:</td>
 															<td><font color="#ff0000">*</font></td>
-															<td><input class="input validate[required] text-input" type="password" name="clave" id="clave" size="25" maxlength="30" /></td>
-															<td>														
-																<div class="progress red">
-																	<span class="bar" style="width:0%"></span>
-																</div>
-															</td>
+															<td><input class="input validate[required, minSize[6]] text-input" type="password" name="clave" id="clave" size="25" maxlength="30" /></td>
+															<td>&nbsp;</td>
 														</tr>
-														<tr>								
+														<tr style="height:30px;">								
 															<td	style="font-size:12px; font-weight:bold; text-shadow:2px 2px 2px #ccc;">Confirma Clave:</td>
 															<td><font color="#ff0000">*</font></td>
 															<td><input class="input validate[required,equals[clave]] text-input" type="password" name="confirmaClave" id="confirmaClave" size="25" maxlength="30" /></td>
 															<td>&nbsp;</td>
 														</tr>
-														<tr>								
+														<tr style="height:30px;">								
 															<td	style="font-size:12px; font-weight:bold; text-shadow:2px 2px 2px #ccc;">Nombres:</td>
 															<td><font color="#ff0000">*</font></td>
 															<td><input class="input validate[required] text-input" type="text" name="nombreUsuario" id="nombreUsuario" size="25" maxlength="30" /></td>
 															<td>&nbsp;</td>
 														</tr>
-														<tr>
+														<tr style="height:30px;">
 															<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Apellido Paterno:</td>
 															<td><font color="#ff0000">*</font></td>
 															<td><input class="input validate[required] text-input" type="text" name="apellidoPaterno" id="apellidoPaterno" size="25"  maxlength="30" /></td>
 															<td>&nbsp;</td>
 														</tr>
-														<tr>
+														<tr style="height:30px;">
 															<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Apellido Materno:</td>
 															<td>&nbsp;</td>
 															<td><input class="input" type="text" name="apellidoMaterno" size="25" maxlength="30" /></td>
 															<td>&nbsp;</td>
 														</tr>
-														<tr>								
+														<tr style="height:30px;">								
 															<td	style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Email:</td>
 															<td><font color="#ff0000">*</font></td>
 															<td><input readonly class="input" type="text" name="emailUsuario" id= "emailUsuario" size="25" value="<%=email %>"/></td>
 															<td>&nbsp;</td>
 														</tr>
-														<tr>								
+														<tr style="height:30px;">								
 															<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Telefono Contacto:</td>
-															<td><font color="#ff0000">*</font></td>
-															<td><input class="input validate[required,custom[phone]]" type="text" name="movilUsuario"  id="movilUsuario" size="25"  maxlength="13" /></td>
+															<td>&nbsp;</td>
+															<td><input class="input validate[custom[phone]]" type="text" name="movilUsuario"  id="movilUsuario" size="25"  maxlength="13" /></td>
 															<td>&nbsp;</td>															
 														</tr>
 														
-														<tr>
+														<tr style="height:30px;">
 															<td	style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Fecha Nacimiento:</td>
 															<td><font color="#ff0000">*</font></td>
 															<td><input class="input validate[required] text-input datepicker" type="text" readonly="readonly" size="25" maxlength="11"	id="fechanac" name="fechanac"></td>
@@ -146,10 +144,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													</fieldset>
 											</div>
 											
-											<div id="step-question-default" class="userform" style="float:left; margin: 0 0 0 6px; width:247px; height:274px;">
+											<div id="step-question-default1" class="userform" style="float:left; margin: 0 0 0 6px; width:247px; height:274px;">
 												<font size="2"><strong>Informacion Personal</strong></font><br/><br/>
-												La informaciÛn personal es utilizada 
-												˙nicamente para su registro.<br/><br/> 
+												La informaci√≥n personal es utilizada 
+												√∫nicamente para su registro.<br/><br/> 
 												Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/> 
 												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>
 												<!-- <img id="btnCerrarDefault" src="/acepta/imagenes/btn_cerrar.png" border="0"/> -->
@@ -159,38 +157,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div class="userform"style="float:left; width:400px; height:274px; overflow:hidden;">
 												<fieldset>
 													<br>
-														<table style="width: 500px;">
-															<tr>
-																<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">RUT Empresa:</td>
-																<td>
-																	<font color="#ff0000">*</font>
-																	<input class="input validate[required,funcCall[checkRutField]]" type="text" id="rutemp" name="rutemp"  maxlength="18" data-prompt-position="bottomRight"/>
-																</td>
+														<table border="0" style="width: 420px;">
+															<tr style="height:30px;">
+																<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc; width:150px;">RUT Empresa:</td>
+																<td style="width:10px;"><font color="#ff0000">*</font></td>
+																<td style="width:190px;"><input class="input validate[required,funcCall[checkRutField]]" type="text" id="rutemp" name="rutemp"  maxlength="18" data-prompt-position="bottomRight"/></td>
+																<td><img id="questionRut" src="<%=basePath%>imagenes/question.png" border="0" /></td>
 															</tr>
-															<tr>
+															<tr style="height:30px;">
 																<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Raz&oacute;n Social:</td>
-																<td>
-																	<font color="#ff0000">*</font>
-																	<input class="input validate[required] text-input" type="text" id="razon" name="razon"  maxlength="50"/>
-																</td>
+																<td><font color="#ff0000">*</font></td>
+																<td><input class="input validate[required] text-input" type="text" id="razon" name="razon"  maxlength="50"/></td>
+																<td><img id="questionRazon" src="<%=basePath%>imagenes/question.png" border="0" /></td>
 															</tr>
-															<tr>								
+															<tr style="height:30px;">								
 																<td	style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Giro:</td>
-																<td>
-																	<font color="#ff0000">*</font>
-																	<input class="input validate[required] text-input" type="text" name="giro" id="giro" size="25" maxlength="30" />
-																</td>
+																<td><font color="#ff0000">*</font></td>
+																<td><input class="input validate[required] text-input" type="text" name="giro" id="giro" size="25" maxlength="30" /></td>
+																<td><img id="questionGiro" src="<%=basePath%>imagenes/question.png" border="0" /></td>
 															</tr>
 															
-															<tr>
+															<tr style="height:30px;">
 																<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Direcci&oacute;n:</td>
-																<td>
-																	<font color="#ff0000">*</font>
-																	<input class="input validate[required] text-input" type="text" name="direccion" id="direccion" size="25"  maxlength="30" />
-																</td>
+																<td><font color="#ff0000">*</font></td>
+																<td><input class="input validate[required] text-input" type="text" name="direccion" id="direccion" size="25"  maxlength="30" /></td>
+																<td>&nbsp;</td>
 															</tr>
-															<tr>										
+															<tr style="height:30px;">										
 																<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;">Comuna:</td>
+																<td><font color="#ff0000">*</font></td>
 																<td>
 																	<div id="idcombo" class="ui-widget" >
 																		&nbsp;&nbsp;
@@ -198,7 +193,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="1101">Iquique</option>
 																			<option value="1107">Alto Hospicio</option>
 																			<option value="1401">Pozo Almonte</option>
-																			<option value="1402">CamiÒa</option>
+																			<option value="1402">Cami√±a</option>
 																			<option value="1403">Colchane</option>
 																			<option value="1404">Huara</option>
 																			<option value="1405">Pica</option>
@@ -207,14 +202,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="2103">Sierra Gorda</option>
 																			<option value="2104">Taltal</option>
 																			<option value="2201">Calama</option>
-																			<option value="2202">Ollag¸e</option>
+																			<option value="2202">Ollag√ºe</option>
 																			<option value="2203">San Pedro de Atacama</option>
 																			<option value="2301">Tocopilla</option>
-																			<option value="2302">MarÌa Elena</option>
-																			<option value="3101">CopiapÛ</option>
+																			<option value="2302">Mar√≠a Elena</option>
+																			<option value="3101">Copiap√≥</option>
 																			<option value="3102">Caldera</option>
 																			<option value="3103">Tierra Amarilla</option>
-																			<option value="3201">ChaÒaral</option>
+																			<option value="3201">Cha√±aral</option>
 																			<option value="3202">Diego de Almagro</option>
 																			<option value="3301">Vallenar</option>
 																			<option value="3302">Alto del Carmen</option>
@@ -225,23 +220,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="4103">Andacollo</option>
 																			<option value="4104">La Higuera</option>
 																			<option value="4105">Paihuano</option>
-																			<option value="4106">VicuÒa</option>
+																			<option value="4106">Vicu√±a</option>
 																			<option value="4201">Illapel</option>
 																			<option value="4202">Canela</option>
 																			<option value="4203">Los Vilos</option>
 																			<option value="4204">Salamanca</option>
 																			<option value="4301">Ovalle</option>
-																			<option value="4302">Combarbal·</option>
+																			<option value="4302">Combarbal√°</option>
 																			<option value="4303">Monte Patria</option>
 																			<option value="4304">Punitaqui</option>
-																			<option value="4305">RÌo Hurtado</option>
-																			<option value="5101">ValparaÌso</option>
+																			<option value="4305">R√≠o Hurtado</option>
+																			<option value="5101">Valpara√≠so</option>
 																			<option value="5102">Casablanca</option>
-																			<option value="5103">ConcÛn</option>
-																			<option value="5104">Juan Fern·ndez</option>
-																			<option value="5105">PuchuncavÌ</option>
+																			<option value="5103">Conc√≥n</option>
+																			<option value="5104">Juan Fern√°ndez</option>
+																			<option value="5105">Puchuncav√≠</option>
 																			<option value="5107">Quintero</option>
-																			<option value="5109">ViÒa del Mar</option>
+																			<option value="5109">Vi√±a del Mar</option>
 																			<option value="5201">Isla de Pascua</option>
 																			<option value="5301">Los Andes</option>
 																			<option value="5302">Calle Larga</option>
@@ -268,19 +263,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="5703">Llay Llay</option>
 																			<option value="5704">Panquehue</option>
 																			<option value="5705">Putaendo</option>
-																			<option value="5706">Santa MarÌa</option>
-																			<option value="5801">QuilpuÈ</option>
+																			<option value="5706">Santa Mar√≠a</option>
+																			<option value="5801">Quilpu√©</option>
 																			<option value="5802">Limache</option>
-																			<option value="5803">OlmuÈ</option>
+																			<option value="5803">Olmu√©</option>
 																			<option value="5804">Villa Alemana</option>
 																			<option value="6101">Rancagua</option>
 																			<option value="6102">Codegua</option>
 																			<option value="6103">Coinco</option>
 																			<option value="6104">Coltauco</option>
-																			<option value="6105">DoÒihue</option>
+																			<option value="6105">Do√±ihue</option>
 																			<option value="6106">Graneros</option>
 																			<option value="6107">Las Cabras</option>
-																			<option value="6108">MachalÌ</option>
+																			<option value="6108">Machal√≠</option>
 																			<option value="6109">Malloa</option>
 																			<option value="6110">Mostazal</option>
 																			<option value="6111">Olivar</option>
@@ -288,7 +283,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="6113">Pichidegua</option>
 																			<option value="6114">Quinta de Tilcoco</option>
 																			<option value="6115">Rengo</option>
-																			<option value="6116">RequÌnoa</option>
+																			<option value="6116">Requ√≠noa</option>
 																			<option value="6117">San Vicente</option>
 																			<option value="6201">Pichilemu</option>
 																			<option value="6202">La Estrella</option>
@@ -297,7 +292,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="6205">Navidad</option>
 																			<option value="6206">Paredones</option>
 																			<option value="6301">San Fernando</option>
-																			<option value="6302">ChÈpica</option>
+																			<option value="6302">Ch√©pica</option>
 																			<option value="6303">Chimbarongo</option>
 																			<option value="6304">Lolol</option>
 																			<option value="6305">Nancagua</option>
@@ -307,36 +302,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="6309">Pumanque</option>
 																			<option value="6310">Santa Cruz</option>
 																			<option value="7101">Talca</option>
-																			<option value="7102">ConstituciÛn</option>
+																			<option value="7102">Constituci√≥n</option>
 																			<option value="7103">Curepto</option>
 																			<option value="7104">Empedrado</option>
 																			<option value="7105">Maule</option>
 																			<option value="7106">Pelarco</option>
 																			<option value="7107">Pencahue</option>
-																			<option value="7108">RÌo Claro</option>
+																			<option value="7108">R√≠o Claro</option>
 																			<option value="7109">San Clemente</option>
 																			<option value="7110">San Rafael</option>
 																			<option value="7201">Cauquenes</option>
 																			<option value="7202">Chanco</option>
 																			<option value="7203">Pelluhue</option>
-																			<option value="7301">CuricÛ</option>
-																			<option value="7302">HualaÒÈ</option>
-																			<option value="7303">LicantÈn</option>
+																			<option value="7301">Curic√≥</option>
+																			<option value="7302">Huala√±√©</option>
+																			<option value="7303">Licant√©n</option>
 																			<option value="7304">Molina</option>
 																			<option value="7305">Rauco</option>
 																			<option value="7306">Romeral</option>
 																			<option value="7307">Sagrada Familia</option>
 																			<option value="7308">Teno</option>
-																			<option value="7309">VichuquÈn</option>
+																			<option value="7309">Vichuqu√©n</option>
 																			<option value="7401">Linares</option>
-																			<option value="7402">Colb˙n</option>
-																			<option value="7403">LongavÌ</option>
+																			<option value="7402">Colb√∫n</option>
+																			<option value="7403">Longav√≠</option>
 																			<option value="7404">Parral</option>
 																			<option value="7405">Retiro</option>
 																			<option value="7406">San Javier</option>
 																			<option value="7407">Villa Alegre</option>
 																			<option value="7408">Yerbas Buenas</option>
-																			<option value="8101">ConcepciÛn</option>
+																			<option value="8101">Concepci√≥n</option>
 																			<option value="8102">Coronel</option>
 																			<option value="8103">Chiguayante</option>
 																			<option value="8104">Florida</option>
@@ -346,48 +341,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="8108">San Pedro de la Paz</option>
 																			<option value="8109">Santa Juana</option>
 																			<option value="8110">Talcahuano</option>
-																			<option value="8111">TomÈ</option>
-																			<option value="8112">HualpÈn</option>
+																			<option value="8111">Tom√©</option>
+																			<option value="8112">Hualp√©n</option>
 																			<option value="8201">Lebu</option>
 																			<option value="8202">Arauco</option>
-																			<option value="8203">CaÒete</option>
+																			<option value="8203">Ca√±ete</option>
 																			<option value="8204">Contulmo</option>
 																			<option value="8205">Curanilahue</option>
-																			<option value="8206">Los ¡lamos</option>
-																			<option value="8207">Tir˙a</option>
-																			<option value="8301">Los ¡ngeles</option>
+																			<option value="8206">Los √Ålamos</option>
+																			<option value="8207">Tir√∫a</option>
+																			<option value="8301">Los √Ångeles</option>
 																			<option value="8302">Antuco</option>
 																			<option value="8303">Cabrero</option>
 																			<option value="8304">Laja</option>
-																			<option value="8305">MulchÈn</option>
+																			<option value="8305">Mulch√©n</option>
 																			<option value="8306">Nacimiento</option>
 																			<option value="8307">Negrete</option>
 																			<option value="8308">Quilaco</option>
 																			<option value="8309">Quilleco</option>
 																			<option value="8310">San Rosendo</option>
-																			<option value="8311">Santa B·rbara</option>
+																			<option value="8311">Santa B√°rbara</option>
 																			<option value="8312">Tucapel</option>
 																			<option value="8313">Yumbel</option>
-																			<option value="8314">Alto BiobÌo</option>
-																			<option value="8401">Chill·n</option>
+																			<option value="8314">Alto Biob√≠o</option>
+																			<option value="8401">Chill√°n</option>
 																			<option value="8402">Bulnes</option>
 																			<option value="8403">Cobquecura</option>
 																			<option value="8404">Coelemu</option>
 																			<option value="8405">Coihueco</option>
-																			<option value="8406">Chill·n Viejo</option>
+																			<option value="8406">Chill√°n Viejo</option>
 																			<option value="8407">El Carmen</option>
 																			<option value="8408">Ninhue</option>
-																			<option value="8409">—iquÈn</option>
+																			<option value="8409">√ëiqu√©n</option>
 																			<option value="8410">Pemuco</option>
 																			<option value="8411">Pinto</option>
 																			<option value="8412">Portezuelo</option>
-																			<option value="8413">QuillÛn</option>
+																			<option value="8413">Quill√≥n</option>
 																			<option value="8414">Quirihue</option>
-																			<option value="8415">R·nquil</option>
+																			<option value="8415">R√°nquil</option>
 																			<option value="8416">San Carlos</option>
-																			<option value="8417">San Fabi·n</option>
+																			<option value="8417">San Fabi√°n</option>
 																			<option value="8418">San Ignacio</option>
-																			<option value="8419">San Nicol·s</option>
+																			<option value="8419">San Nicol√°s</option>
 																			<option value="8420">Treguaco</option>
 																			<option value="8421">Yungay</option>
 																			<option value="9101">Temuco</option>
@@ -403,71 +398,71 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="9111">Nueva Imperial</option>
 																			<option value="9112">Padre las Casas</option>
 																			<option value="9113">Perquenco</option>
-																			<option value="9114">PitrufquÈn</option>
-																			<option value="9115">PucÛn</option>
+																			<option value="9114">Pitrufqu√©n</option>
+																			<option value="9115">Puc√≥n</option>
 																			<option value="9116">Saavedra</option>
 																			<option value="9117">Teodoro Schmidt</option>
-																			<option value="9118">ToltÈn</option>
-																			<option value="9119">Vilc˙n</option>
+																			<option value="9118">Tolt√©n</option>
+																			<option value="9119">Vilc√∫n</option>
 																			<option value="9120">Villarrica</option>
 																			<option value="9121">Cholchol</option>
 																			<option value="9201">Angol</option>
 																			<option value="9202">Collipulli</option>
-																			<option value="9203">CuracautÌn</option>
+																			<option value="9203">Curacaut√≠n</option>
 																			<option value="9204">Ercilla</option>
 																			<option value="9205">Lonquimay</option>
 																			<option value="9206">Los Sauces</option>
 																			<option value="9207">Lumaco</option>
-																			<option value="9208">PurÈn</option>
+																			<option value="9208">Pur√©n</option>
 																			<option value="9209">Renaico</option>
-																			<option value="9210">TraiguÈn</option>
+																			<option value="9210">Traigu√©n</option>
 																			<option value="9211">Victoria</option>
 																			<option value="10101">Puerto Montt</option>
 																			<option value="10102">Calbuco</option>
-																			<option value="10103">CochamÛ</option>
+																			<option value="10103">Cocham√≥</option>
 																			<option value="10104">Fresia</option>
 																			<option value="10105">Frutillar</option>
 																			<option value="10106">Los Muermos</option>
 																			<option value="10107">Llanquihue</option>
-																			<option value="10108">MaullÌn</option>
+																			<option value="10108">Maull√≠n</option>
 																			<option value="10109">Puerto Varas</option>
 																			<option value="10201">Castro</option>
 																			<option value="10202">Ancud</option>
 																			<option value="10203">Chonchi</option>
-																			<option value="10204">Curaco de VÈlez</option>
+																			<option value="10204">Curaco de V√©lez</option>
 																			<option value="10205">Dalcahue</option>
-																			<option value="10206">PuqueldÛn</option>
-																			<option value="10207">QueilÈn</option>
-																			<option value="10208">QuellÛn</option>
+																			<option value="10206">Puqueld√≥n</option>
+																			<option value="10207">Queil√©n</option>
+																			<option value="10208">Quell√≥n</option>
 																			<option value="10209">Quemchi</option>
 																			<option value="10210">Quinchao</option>
 																			<option value="10301">Osorno</option>
 																			<option value="10302">Puerto Octay</option>
 																			<option value="10303">Purranque</option>
 																			<option value="10304">Puyehue</option>
-																			<option value="10305">RÌo Negro</option>
+																			<option value="10305">R√≠o Negro</option>
 																			<option value="10306">San Juan de la Costa</option>
 																			<option value="10307">San Pablo</option>
-																			<option value="10401">ChaitÈn</option>
-																			<option value="10402">Futaleuf˙</option>
-																			<option value="10403">HualaihuÈ</option>
+																			<option value="10401">Chait√©n</option>
+																			<option value="10402">Futaleuf√∫</option>
+																			<option value="10403">Hualaihu√©</option>
 																			<option value="10404">Palena</option>
 																			<option value="11101">Coyhaique</option>
 																			<option value="11102">Lago Verde</option>
-																			<option value="11201">AysÈn</option>
+																			<option value="11201">Ays√©n</option>
 																			<option value="11202">Cisnes</option>
 																			<option value="11203">Guaitecas</option>
 																			<option value="11301">Cochrane</option>
 																			<option value="11302">O''Higgins</option>
 																			<option value="11303">Tortel</option>
 																			<option value="11401">Chile Chico</option>
-																			<option value="11402">RÌo Ib·Òez</option>
+																			<option value="11402">R√≠o Ib√°√±ez</option>
 																			<option value="12101">Punta Arenas</option>
 																			<option value="12102">Laguna Blanca</option>
-																			<option value="12103">RÌo Verde</option>
+																			<option value="12103">R√≠o Verde</option>
 																			<option value="12104">San Gregorio</option>
 																			<option value="12201">Cabo de Hornos</option>
-																			<option value="12202">Ant·rtica</option>
+																			<option value="12202">Ant√°rtica</option>
 																			<option value="12301">Porvenir</option>
 																			<option value="12302">Primavera</option>
 																			<option value="12303">Timaukel</option>
@@ -476,9 +471,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="13101">Santiago</option>
 																			<option value="13102">Cerrillos</option>
 																			<option value="13103">Cerro Navia</option>
-																			<option value="13104">ConchalÌ</option>
+																			<option value="13104">Conchal√≠</option>
 																			<option value="13105">El Bosque</option>
-																			<option value="13106">EstaciÛn Central</option>
+																			<option value="13106">Estaci√≥n Central</option>
 																			<option value="13107">Huechuraba</option>
 																			<option value="13108">Independencia</option>
 																			<option value="13109">La Cisterna</option>
@@ -491,23 +486,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="13116">Lo Espejo</option>
 																			<option value="13117">Lo Prado</option>
 																			<option value="13118">Macul</option>
-																			<option value="13119">Maip˙</option>
-																			<option value="13120">—uÒoa</option>
+																			<option value="13119">Maip√∫</option>
+																			<option value="13120">√ëu√±oa</option>
 																			<option value="13121">Pedro Aguirre Cerda</option>
-																			<option value="13122">PeÒalolÈn</option>
+																			<option value="13122">Pe√±alol√©n</option>
 																			<option value="13123">Providencia</option>
 																			<option value="13124">Pudahuel</option>
 																			<option value="13125">Quilicura</option>
 																			<option value="13126">Quinta Normal</option>
 																			<option value="13127">Recoleta</option>
 																			<option value="13128">Renca</option>
-																			<option value="13129">San JoaquÌn</option>
+																			<option value="13129">San Joaqu√≠n</option>
 																			<option value="13130">San Miguel</option>
-																			<option value="13131">San RamÛn</option>
+																			<option value="13131">San Ram√≥n</option>
 																			<option value="13132">Vitacura</option>
 																			<option value="13201">Puente Alto</option>
 																			<option value="13202">Pirque</option>
-																			<option value="13203">San JosÈ de Maipo</option>
+																			<option value="13203">San Jos√© de Maipo</option>
 																			<option value="13301">Colina</option>
 																			<option value="13302">Lampa</option>
 																			<option value="13303">Tiltil</option>
@@ -516,27 +511,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<option value="13403">Calera de Tango</option>
 																			<option value="13404">Paine</option>
 																			<option value="13501">Melipilla</option>
-																			<option value="13502">AlhuÈ</option>
-																			<option value="13503">CuracavÌ</option>
-																			<option value="13504">MarÌa Pinto</option>
+																			<option value="13502">Alhu√©</option>
+																			<option value="13503">Curacav√≠</option>
+																			<option value="13504">Mar√≠a Pinto</option>
 																			<option value="13505">San Pedro</option>
 																			<option value="13601">Talagante</option>
 																			<option value="13602">El Monte</option>
 																			<option value="13603">Isla de Maipo</option>
 																			<option value="13604">Padre Hurtado</option>
-																			<option value="13605">PeÒaflor</option>
+																			<option value="13605">Pe√±aflor</option>
 																			<option value="14101">Valdivia</option>
 																			<option value="14102">Corral</option>
 																			<option value="14103">Lanco</option>
 																			<option value="14104">Los Lagos</option>
-																			<option value="14105">M·fil</option>
+																			<option value="14105">M√°fil</option>
 																			<option value="14106">Mariquina</option>
 																			<option value="14107">Paillaco</option>
 																			<option value="14108">Panguipulli</option>
-																			<option value="14201">La UniÛn</option>
+																			<option value="14201">La Uni√≥n</option>
 																			<option value="14202">Futrono</option>
 																			<option value="14203">Lago Ranco</option>
-																			<option value="14204">RÌo Bueno</option>
+																			<option value="14204">R√≠o Bueno</option>
 																			<option value="15101">Arica</option>
 																			<option value="15102">Camarones</option>
 																			<option value="15201">Putre</option>
@@ -544,17 +539,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																		</select>
 																	</div>
 																</td>
+																<td>&nbsp;</td>
 															</tr>
-															<tr>
-										
-																<td
-																	style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;"> 
-																	Ciudad: 
+															<tr style="height:30px;">
+																<td style="font-size: 12px; font-weight: bold; text-shadow: 2px 2px 2px #ccc;"> Ciudad: </td>
+																<td><font color="#ff0000">*</font></td>
+																<td><input class="input validate[required] text-input" type="text" name="ciudad" id= "ciudad" size="25" />
 																</td>
-																<td>
-																	<font color="#ff0000">*</font>
-																	<input class="input validate[required] text-input" type="text" name="ciudad" id= "ciudad" size="25" />
-																</td>
+																<td>&nbsp;</td>
 															</tr>
 														</table>
 														</fieldset>											
@@ -567,6 +559,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>
 												<!-- <img id="btnCerrarDefault" src="/acepta/imagenes/btn_cerrar.png" border="0"/> -->
 											</div>	
+											<div id="step-Rut" class="userform" style="float:left; margin: 0 0 0 6px; width:247px; height:274px;">
+												<font size="2"><strong>Rut</strong></font><br/><br/>
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+												sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/><br/> 
+												Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/> 
+												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>
+												<img id="btnCerrar" src="<%=basePath%>imagenes/btn_cerrar.png" border="0"/>
+											</div>
+											<div id="step-Razon" class="userform" style="display:none; float:left; margin: 0 0 0 6px; width:247px; height:274px;">
+												<font size="2"><strong>Razon</strong></font><br/><br/>
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+												sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/><br/> 
+												Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/> 
+												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>
+												<img class="btnCerrar" src="<%=basePath%>imagenes/btn_cerrar.png" border="0"/>
+											</div>
+											<div id="step-Giro" class="userform" style="display:none; float:left; margin: 0 0 0 6px; width:247px; height:274px;">
+												<font size="2"><strong>Giro</strong></font><br/><br/>
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+												sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/><br/> 
+												Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/> 
+												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>
+												<img class="btnCerrar" src="<%=basePath%>imagenes/btn_cerrar.png" border="0"/>
+											</div>
 										</div>
 									</div>	
 							<input class="input" type="hidden" name="reqName" value="prgregistrousr">			
