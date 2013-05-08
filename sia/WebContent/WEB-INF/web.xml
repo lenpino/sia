@@ -13,21 +13,21 @@
     <param-value>/recursos/plantillasMails/textoCorreo.txt</param-value>
   </context-param>
   <servlet>
-	<display-name>JAX-RS REST Servlet</display-name>
-	<servlet-name>JAX-RS REST Servlet</servlet-name>
-	<servlet-class>
+    <display-name>JAX-RS REST Servlet</display-name>
+    <servlet-name>JAX-RS REST Servlet</servlet-name>
+    <servlet-class>
 		com.sun.jersey.spi.container.servlet.ServletContainer
 	</servlet-class>
-	<init-param>
-  		<param-name>com.sun.jersey.config.property.packages</param-name>
-  		<param-value>cl.altair.perfilamiento.control</param-value>
-	</init-param>
-	<load-on-startup>1</load-on-startup>
-   </servlet>
-   <servlet-mapping>
-	<servlet-name>JAX-RS REST Servlet</servlet-name>
-	<url-pattern>/rest-services/*</url-pattern>
-   </servlet-mapping>
+    <init-param>
+      <param-name>com.sun.jersey.config.property.packages</param-name>
+      <param-value>cl.altair.perfilamiento.control</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JAX-RS REST Servlet</servlet-name>
+    <url-pattern>/rest-services/*</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>CtrlFce</servlet-name>
     <servlet-class>servicios.control.FceServlet</servlet-class>
@@ -75,8 +75,8 @@
     <res-auth>Container</res-auth>
   </resource-ref>
   <resource-ref>
-     <res-ref-name>mail/webapp</res-ref-name>
-     <res-type>javax.mail.Session</res-type>
-     <res-auth>Container</res-auth>
- </resource-ref>	
+    <res-ref-name>mail/webapp</res-ref-name>
+    <res-type>javax.mail.Session</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
 </web-app>

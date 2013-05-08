@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en"><head>
 	<title>Home</title>
@@ -18,6 +19,7 @@
 	<link href="http://fonts.googleapis.com/css?family=Boogaloo" rel="stylesheet" type="text/css">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	
 	<script src="js/jquery/js/jquery-1.8.0.min.js"></script>
 	<script src="js/comun/script.js"></script>
 	<script src="js/jquery/plugins/jquery.hoverIntent.js"></script>
@@ -69,11 +71,11 @@
 								<nav>
 									<ul class="menu responsive-menu sf-js-enabled">
 										<li class="current"><a href="index.html">Home</a></li>
-										<li><a href="index-1.html" class="sf-with-ul">Empresa<span class="menu-arrow"> ›</span></a>
+										<li><a href="index-1.html" class="sf-with-ul">Empresa<span class="menu-arrow"> âº</span></a>
 											<ul style="display: none;">
 												<li><a href="#">Resumen</a></li>
 												<li><a href="#">Nuestra Misión</a></li>
-												<li><a href="#" class="sf-with-ul">Conoce a nuestro equipo<span class="menu-arrow"> ›</span></a>
+												<li><a href="#" class="sf-with-ul">Conoce a nuestro equipo<span class="menu-arrow"> âº</span></a>
 													<ul style="display: none;">
 														<li><a href="#">Administración</a></li>
 														<li><a href="#">Soporte</a></li>
@@ -108,7 +110,7 @@
 										<div class="caption" style="left: 0px;">
 											<h3>Una herramienta potente <br>para su negocio!</h3>
 											<p>Etiam a turpis at nulla fermentum facilisis ut vel metus. Aliquam nulla tellus, dignissim quis viverra eget, mattis nec velit. Suspendisse pulvinar. Sed eu volutpat.</p>
-											<a href="#" class="button1">Leer Más</a>
+											<a href="#" class="button1">Leer MÃ¡s</a>
 										</div>
 									</li>
 									<li class="slide" style="width: 100%; float: left; margin-right: -100%; position: relative; display: none;">
@@ -138,7 +140,7 @@
 													<div class="grid_4 alpha">
 														<div class="indent-left3-1">
 															<div class="box">
-																<h3 class="icon-1">Desarrollo.&nbsp;&nbsp;&nbsp;</h3>
+																<h3 class="icon-1">Software.&nbsp;&nbsp;&nbsp;</h3>
 																<a href="#" class="button1">Más</a>
 																<div class="clear"></div>
 															</div>
@@ -157,7 +159,7 @@
 														<div class="indent-right3-1">
 															<div class="box">
 																<h3 class="icon-3">Complete.</h3>
-																<a href="#" class="button1">M�s</a>
+																<a href="#" class="button1">Más</a>
 																<div class="clear"></div>
 															</div>
 														</div>
@@ -186,7 +188,7 @@
 													</div>
 													<div class="grid_4">
 														<div class="indent-left7 indent-right7">
-															<h3 class="p3">Our Capabilities</h3>
+															<h3 class="p3">Nuestras Capacidades</h3>
 															<div class="indent-bottom6-1 border-bottom p6">
 																<ul class="list-1">
 																	<li><a href="#">Remates</a></li>
@@ -201,7 +203,7 @@
 																	<li class="last-item"><a href="#">Education &amp; Training</a></li>
 																</ul>
 															</div>
-															<a href="#" class="button">Mas</a>
+															<a href="#" class="button">Más</a>
 														</div>
 													</div>
 													<div class="grid_4 omega">
@@ -214,7 +216,7 @@
 																<div class="extra-wrap">
 																	<time datetime="2012-01-01" class="date1">12-12-2012</time>
 																	<h6><a href="#">Am erat volutpa orem </a></h6>
-																	<p class="p0">Osum dolor sit amet, consectetuer adipis­cing elit, sed diam nonummy nibh euism.</p>
+																	<p class="p0">Osum dolor sit amet, consectetuer adipisÂ­cing elit, sed diam nonummy nibh euism.</p>
 																</div>
 																<div class="clear"></div>
 															</div>
@@ -225,11 +227,11 @@
 																<div class="extra-wrap">
 																	<time datetime="2012-01-01" class="date1">12-12-2012</time>
 																	<h6><a href="#">Am erat volutpa orem </a></h6>
-																	<p class="p0">Osum dolor sit amet, consectetuer adipis­cing elit, sed diam nonummy nibh euism.</p>
+																	<p class="p0">Osum dolor sit amet, consectetuer adipisÂ­cing elit, sed diam nonummy nibh euism.</p>
 																</div>
 																<div class="clear"></div>
 															</div>
-															<a href="#" class="button">Mas</a>
+															<a href="#" class="button">Más</a>
 														</div>
 													</div>
 													<div class="clear"></div>
@@ -315,7 +317,7 @@
 											<li class="last-item"><a href="#" class="icon-4"></a></li>
 										</ul>
 										<div class="footer-text">
-											Altair © 2012 <a href="index-6.html">Privacidad</a>
+											Altair © 2013 <a href="index-6.html">Privacidad</a>
 											<div class="footer-link"><!--{%FOOTER_LINK} --></div>
 										</div>
 									</div>

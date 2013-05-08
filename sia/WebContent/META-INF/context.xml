@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context docBase="sia" path="/sia">
+<Context docBase="/" path="">
 <Manager pathname="" />
 <ResourceLink 
 			name="jdbc/perfilDS" 
