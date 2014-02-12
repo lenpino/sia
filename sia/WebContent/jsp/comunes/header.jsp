@@ -6,7 +6,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="cont_iconos_top_menu">
 		<div class="contenedo_menu_top">
 				<div class="icono_text_menu">
-					<!-- <div class="icono_top_menu"><img src="<%=basePath%>imagenes/padlock.png" border="0" /></div> -->
 					<div class="icono_top_menu"><img src="<%=basePath%>imagenes/candao.png" border="0" /></div>
 					<div class="text_top_menu"><a href="<%=basePath%>fce?reqName=prglogoff" title="Salir"><font color="#ffffff">Cerrar Sesi&oacute;n</font></a></div>
 				</div>
